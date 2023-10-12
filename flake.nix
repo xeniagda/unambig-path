@@ -14,6 +14,7 @@
           cargoLock = { lockFile = ./Cargo.lock; };
         };
     in {
+      packages.unambig-path = unambig-path;
       packages.default = unambig-path;
     }
   );
