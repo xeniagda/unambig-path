@@ -57,7 +57,12 @@ fn main() -> Result<()> {
             res.push(segment);
         }
     }
-    print!("{}/", res.to_str().unwrap());
+
+    if res.parent() == None {
+        print!("/");
+    } else {
+        print!("{}/", res.to_str().unwrap());
+    }
 
     Ok(())
 }
