@@ -1,7 +1,9 @@
 use std::io::Result;
 
 fn main() -> Result<()> {
-    let mut path = std::env::current_dir()?;
+    let first_arg = std::env::args().skip(1).next();
+
+    let mut path = first_arg.map(|x| std::path::PathBuf::from(x)).unwrap_or(std::env::current_dir()?);
 
     let mut segments = Vec::new();
 
